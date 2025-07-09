@@ -1,9 +1,17 @@
-namespace AppSeguridad;
+using Microsoft.Maui.Controls;
 
-public partial class AdultosMayoresPage : ContentPage
+namespace AppSeguridad
 {
-	public AdultosMayoresPage()
-	{
-		InitializeComponent();
-	}
+    public partial class AdultosMayoresPage : ContentPage
+    {
+        public AdultosMayoresPage()
+        {
+            InitializeComponent();
+        }
+
+        private async void IrACrucigrama_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CrucigramaPage());
+        }
+    }
 }

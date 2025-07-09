@@ -4,71 +4,181 @@
     xmlns:media="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AppSeguridad.AdolescentesPage"
-    Title="Ciberseguridad para Adolescentes"
-    BackgroundColor="#F0F4FF">
+    Title="Ciberseguridad para Adolescentes">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Tipografía general -->
+            <Style x:Key="TituloStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#1D3557" />
+            </Style>
+            <Style x:Key="SubtituloStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#457B9D" />
+            </Style>
+            <Style x:Key="TextoStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="TipFrameStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="5,2" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <Label Text="10 Consejos de Ciberseguridad" 
-                   FontSize="24" 
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center" 
-                   TextColor="#1D3557"/>
+    <!-- Fondo suave estilo circuito -->
+    <Grid BackgroundColor="#F0F4FF">
+        <Image Source="circuito_fondo.png"
+           Aspect="AspectFill"
+           Opacity="0.1" />
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="15">
 
-            <!-- Consejo 1 -->
-            <Label Text="🔐 1. Usa contraseñas seguras y diferentes" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="No pongas tu nombre, fecha de nacimiento o “123456”.\nUsa combinaciones de letras, números y símbolos.\nNunca uses la misma contraseña en todas partes." FontSize="16" TextColor="Black"/>
+                <!-- Encabezado -->
+                <Frame BackgroundColor="#FFFFFFCC"
+               CornerRadius="12"
+               Padding="15"
+               HasShadow="True">
+                    <Label Text="🔐 10 Consejos de Ciberseguridad"
+                 Style="{StaticResource TituloStyle}"
+                 HorizontalOptions="Center" />
+                </Frame>
 
-            <!-- Consejo 2 -->
-            <Label Text="📱 2. Activa el doble factor de autenticación (2FA)" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="Es una capa extra de seguridad que evita que alguien entre en tus cuentas, aunque tenga tu contraseña." FontSize="16" TextColor="Black"/>
+                <!-- Consejo 1 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#8BC34A">
+                    <VerticalStackLayout>
+                        <Label Text="🔐 1. Usa contraseñas seguras y diferentes"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="No pongas tu nombre, fecha de nacimiento o “123456”. Usa combinaciones de letras, números y símbolos. Nunca uses la misma contraseña en todas partes."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <!-- Consejo 3 -->
-            <Label Text="🤫 3. No compartas tu información personal" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="No publiques tu dirección, número de celular, nombre completo de tus familiares, ni ubicación en redes sociales." FontSize="16" TextColor="Black"/>
+                <!-- Consejo 2 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#4CAF50">
+                    <VerticalStackLayout>
+                        <Label Text="📱 2. Activa el doble factor de autenticación (2FA)"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Es una capa extra de seguridad que evita que alguien entre en tus cuentas, aunque tenga tu contraseña."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <!-- Consejo 4 -->
-            <Label Text="🧑‍💻 4. Habla solo con personas que conozcas" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="En redes sociales o juegos, evita dar información a extraños.\nNunca aceptes encuentros en persona con alguien que conociste solo por internet." FontSize="16" TextColor="Black"/>
+                <!-- Consejo 3 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#FFC107">
+                    <VerticalStackLayout>
+                        <Label Text="🤫 3. No compartas tu información personal"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="No publiques tu dirección, número de celular, nombre completo de tus familiares, ni ubicación en redes sociales."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <!-- Consejo 5 -->
-            <Label Text="👀 5. Cuidado con los enlaces sospechosos" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="No hagas clic en enlaces raros que te mandan por correo, mensajes o redes.\nAunque parezca de un amigo, verifica antes de hacer clic." FontSize="16" TextColor="Black"/>
+                <!-- Consejo 4 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#2196F3">
+                    <VerticalStackLayout>
+                        <Label Text="🧑‍💻 4. Habla solo con personas que conozcas"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="En redes sociales o juegos, evita dar información a extraños. Nunca aceptes encuentros en persona con alguien que conociste solo por internet."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <!-- Consejo 6 -->
-            <Label Text="🛑 6. No descargues archivos o apps sin revisar" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="Solo descarga apps desde tiendas oficiales (como Google Play o App Store).\nArchivos desconocidos pueden contener virus o malware." FontSize="16" TextColor="Black"/>
+                <!-- Consejo 5 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#F44336">
+                    <VerticalStackLayout>
+                        <Label Text="👀 5. Cuidado con los enlaces sospechosos"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="No hagas clic en enlaces raros que te mandan por correo, mensajes o redes. Aunque parezca de un amigo, verifica antes de hacer clic."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <!-- Consejo 7 -->
-            <Label Text="🎥 7. Piensa antes de publicar fotos o videos" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="Una vez en internet, ya no puedes controlar quién lo ve o lo guarda.\nNunca subas contenido que pueda avergonzarte o meterte en problemas." FontSize="16" TextColor="Black"/>
+                <!-- Consejo 6 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#E91E63">
+                    <VerticalStackLayout>
+                        <Label Text="🛑 6. No descargues archivos o apps sin revisar"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Solo descarga apps desde tiendas oficiales (como Google Play o App Store). Archivos desconocidos pueden contener virus o malware."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <!-- Consejo 8 -->
-            <Label Text="🧠 8. Desconfía de lo que parece demasiado bueno" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="Si te ofrecen dinero, premios o regalos por hacer clic o compartir algo, probablemente es una estafa." FontSize="16" TextColor="Black"/>
+                <!-- Consejo 7 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#00BCD4">
+                    <VerticalStackLayout>
+                        <Label Text="🎥 7. Piensa antes de publicar fotos o videos"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Una vez en internet, ya no puedes controlar quién lo ve o lo guarda. Nunca subas contenido que pueda avergonzarte o meterte en problemas."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <!-- Consejo 9 -->
-            <Label Text="🔍 9. Aprende a revisar la configuración de privacidad" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="Asegúrate de que tus cuentas estén privadas y revisa quién puede ver lo que publicas.\nAjusta quién puede enviarte mensajes o ver tu perfil." FontSize="16" TextColor="Black"/>
+                <!-- Consejo 8 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#FF9800">
+                    <VerticalStackLayout>
+                        <Label Text="🧠 8. Desconfía de lo que parece demasiado bueno"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Si te ofrecen dinero, premios o regalos por hacer clic o compartir algo, probablemente es una estafa."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <!-- Consejo 10 -->
-            <Label Text="💬 10. Habla con un adulto si algo te incomoda" FontSize="18" FontAttributes="Bold" TextColor="#457B9D"/>
-            <Label Text="Si alguien te acosa, te amenaza o te hace sentir incómodo en línea, cuéntaselo a tus padres, un profesor o un adulto de confianza." FontSize="16" TextColor="Black"/>
-            <WebView 
-                HeightRequest="250"
-                Source="https://youtube.com/shorts/CtyYTmIj25k?feature=share"
-            />
-            <Button
-                Text="Jugar Verdadero o Falso"
-                BackgroundColor="#1D3557"
-                TextColor="White"
-                CornerRadius="10"
-                Clicked="IrAVerdaderoFalso_Clicked"/>
+                <!-- Consejo 9 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#9C27B0">
+                    <VerticalStackLayout>
+                        <Label Text="🔍 9. Aprende a revisar la configuración de privacidad"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Asegúrate de que tus cuentas estén privadas y revisa quién puede ver lo que publicas. Ajusta quién puede enviarte mensajes o ver tu perfil."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
+                <!-- Consejo 10 -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#795548">
+                    <VerticalStackLayout>
+                        <Label Text="💬 10. Habla con un adulto si algo te incomoda"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Si alguien te acosa, te amenaza o te hace sentir incómodo en línea, cuéntaselo a tus padres, un profesor o un adulto de confianza."
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
 
+                <!-- Video explicativo -->
+                <Frame HasShadow="True" CornerRadius="8" Padding="0" Margin="5,10">
+                    <WebView 
+            HeightRequest="250"
+            Source="https://youtube.com/shorts/CtyYTmIj25k?feature=share" />
+                </Frame>
 
+                <!-- Botón destacado -->
+                <Button
+          Text="🧩 Jugar Verdadero o Falso"
+          FontSize="18"
+          FontAttributes="Bold"
+          BackgroundColor="#1D3557"
+          TextColor="White"
+          CornerRadius="8"
+          HeightRequest="50"
+          Clicked="IrAVerdaderoFalso_Clicked"/>
 
-        </VerticalStackLayout>
-    </ScrollView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

@@ -71,6 +71,12 @@
 	  <MauiXaml Update="AdultosMayoresPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="CrucigramaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="NinosMatchPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="NinosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

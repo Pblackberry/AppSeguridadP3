@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSeguridad.CrucigramaPage"
+    Title="Juego: Crucigrama"
+    BackgroundColor="#FFF9E5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Label Text="🧩 Crucigrama: Seguridad Digital"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#1D3557"/>
+
+            <Grid x:Name="CrucigramaGrid"
+                  RowSpacing="1" ColumnSpacing="1"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"/>
+
+            <Button Text="Verificar"
+                    Clicked="Verificar_Clicked"
+                    BackgroundColor="#1D3557"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Margin="0,20"/>
+
+            <Label x:Name="ResultadoLabel" Text="" FontSize="18" TextColor="Green"/>
+
+            <VerticalStackLayout Padding="10" Spacing="4">
+                <Label Text="Pistas" FontSize="20" FontAttributes="Bold" />
+                <Label Text="1. Programa que protege contra virus y malware." FontSize="16"/>
+                <Label Text="2. Notificación que avisa de un posible incidente de seguridad." FontSize="16"/>
+                <Label Text="3. Acción de obtener información sin permiso." FontSize="16"/>
+                <Label Text="4. Persona que accede ilegalmente a sistemas." FontSize="16"/>
+                <Label Text="5. Conjunto de medidas o mecanismos que protegen datos y sistemas." FontSize="16"/>
+                <Label Text="6. Actividad de infiltrarse o acceder ilícitamente a sistemas." FontSize="16"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

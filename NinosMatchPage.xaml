@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSeguridad.NinosMatchPage"
+    Title="Une las Palabras"
+    BackgroundColor="#FFFDE7">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!-- Gradiente suave de fondo -->
+            <LinearGradientBrush x:Key="BackgroundGradient"
+                           StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFFDE7" Offset="0.0" />
+                <GradientStop Color="#E1F5FE" Offset="1.0" />
+            </LinearGradientBrush>
+
+            <!-- Estilos -->
+            <Style x:Key="QuestionLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#37474F"/>
+            </Style>
+            <Style x:Key="PickerStyle" TargetType="Picker">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+                <Setter Property="HeightRequest" Value="40"/>
+               
+            </Style>
+            <Style x:Key="VerifyButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BackgroundColor" Value="#00796B"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Background="{StaticResource BackgroundGradient}">
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <Label Text="✏️ Une cada definición con la palabra" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" />
+
+                <!-- Ítems a unir -->
+                <!-- 1 -->
+                <Label Text="1. Programa que detecta y elimina virus." 
+               Style="{StaticResource QuestionLabelStyle}" />
+                <Picker x:Name="Picker1" Style="{StaticResource PickerStyle}" />
+
+                <!-- 2 -->
+                <Label Text="2. Pequeño programa dañino que se copia." 
+               Style="{StaticResource QuestionLabelStyle}" />
+                <Picker x:Name="Picker2" Style="{StaticResource PickerStyle}" />
+
+                <!-- 3 -->
+                <Label Text="3. Engaño por correo para robar datos." 
+               Style="{StaticResource QuestionLabelStyle}" />
+                <Picker x:Name="Picker3" Style="{StaticResource PickerStyle}" />
+
+                <!-- 4 -->
+                <Label Text="4. Acción de poner al día tu dispositivo." 
+               Style="{StaticResource QuestionLabelStyle}" />
+                <Picker x:Name="Picker4" Style="{StaticResource PickerStyle}" />
+
+                <!-- 5 -->
+                <Label Text="5. Claves secretas para acceder a cuentas." 
+               Style="{StaticResource QuestionLabelStyle}" />
+                <Picker x:Name="Picker5" Style="{StaticResource PickerStyle}" />
+
+                <!-- Botón Verificar -->
+                <Button Text="Verificar" 
+                Style="{StaticResource VerifyButtonStyle}" 
+                Clicked="OnVerifyClicked" />
+
+                <Label x:Name="ResultLabel" 
+               FontSize="18" 
+               HorizontalOptions="Center" 
+               TextColor="#37474F"
+               Margin="0,10,0,0"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

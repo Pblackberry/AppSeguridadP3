@@ -6,44 +6,147 @@
     Title="Verdadero o Falso"
     BackgroundColor="#F9FAFB">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!-- Gradiente para encabezado -->
+            <LinearGradientBrush x:Key="HeaderGradient" EndPoint="0,1" StartPoint="0,0">
+                <GradientStop Color="#4F46E5" Offset="0.0" />
+                <GradientStop Color="#3B82F6" Offset="1.0" />
+            </LinearGradientBrush>
+
+            <!-- Tipografías -->
+            <Style x:Key="PageTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="#66000000" Offset="2,2" Radius="4" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="QuestionLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#1E293B" />
+            </Style>
+            <Style x:Key="AnswerButtonStyle" TargetType="Button">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="48" />
+                <Setter Property="WidthRequest" Value="120" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="BackgroundColor" Value="#3B82F6" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="0.95" />
+                                    <Setter Property="BackgroundColor" Value="#2563EB" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <!-- Divider -->
+            <Style x:Key="DividerStyle" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="BackgroundColor" Value="#CBD5E1" />
+                <Setter Property="Margin" Value="0,10" />
+            </Style>
+
+            <!-- ProgressBar custom -->
+            <Style x:Key="ProgressBarStyle" TargetType="ProgressBar">
+                <Setter Property="HeightRequest" Value="6" />
+                <Setter Property="ProgressColor" Value="#4F46E5" />
+                <Setter Property="BackgroundColor" Value="#E5E7EB" />
+                <Setter Property="Margin" Value="20,0" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="25">
-            <Label Text="¿Verdadero o Falso?" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+        <VerticalStackLayout Padding="0,0,0,20" Spacing="0">
 
-            <!-- Pregunta 1 -->
-            <Label Text="1. Es seguro usar la misma contraseña en todas tus cuentas." FontSize="18"/>
-            <HorizontalStackLayout Spacing="10">
-                <Button Text="Verdadero" Clicked="Pregunta1_Falso"/>
-                <Button Text="Falso" Clicked="Pregunta1_Correcto"/>
-            </HorizontalStackLayout>
+            <!-- Encabezado con gradiente -->
+            <Grid HeightRequest="120">
+                <BoxView Background="{StaticResource HeaderGradient}" />
+                <Label Text="¿Verdadero o Falso?" 
+               Style="{StaticResource PageTitleStyle}"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+            </Grid>
 
-            <!-- Pregunta 2 -->
-            <Label Text="2. El doble factor de autenticación (2FA) mejora la seguridad." FontSize="18"/>
-            <HorizontalStackLayout Spacing="10">
-                <Button Text="Verdadero" Clicked="Pregunta2_Correcto"/>
-                <Button Text="Falso" Clicked="Pregunta2_Falso"/>
-            </HorizontalStackLayout>
+            <!-- Indicador de progreso -->
+            <ProgressBar x:Name="PreguntaProgress"
+                   Style="{StaticResource ProgressBarStyle}"
+                   Progress="0.0" />
 
-            <!-- Pregunta 3 -->
-            <Label Text="3. Está bien aceptar invitaciones de desconocidos en redes sociales." FontSize="18"/>
-            <HorizontalStackLayout Spacing="10">
-                <Button Text="Verdadero" Clicked="Pregunta3_Falso"/>
-                <Button Text="Falso" Clicked="Pregunta3_Correcto"/>
-            </HorizontalStackLayout>
+            <VerticalStackLayout Padding="20" Spacing="15">
 
-            <!-- Pregunta 4 -->
-            <Label Text="4. Descargar apps solo de tiendas oficiales es más seguro." FontSize="18"/>
-            <HorizontalStackLayout Spacing="10">
-                <Button Text="Verdadero" Clicked="Pregunta4_Correcto"/>
-                <Button Text="Falso" Clicked="Pregunta4_Falso"/>
-            </HorizontalStackLayout>
+                <!-- Pregunta 1 -->
+                <Label Text="1. Es seguro usar la misma contraseña en todas tus cuentas."
+               Style="{StaticResource QuestionLabelStyle}" />
+                <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <Button Text="Verdadero" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta1_Falso"/>
+                    <Button Text="Falso" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta1_Correcto"/>
+                </HorizontalStackLayout>
+                <BoxView Style="{StaticResource DividerStyle}" />
 
-            <!-- Pregunta 5 -->
-            <Label Text="5. Si algo te incomoda en línea, debes guardarlo como secreto." FontSize="18"/>
-            <HorizontalStackLayout Spacing="10">
-                <Button Text="Verdadero" Clicked="Pregunta5_Falso"/>
-                <Button Text="Falso" Clicked="Pregunta5_Correcto"/>
-            </HorizontalStackLayout>
+                <!-- Pregunta 2 -->
+                <Label Text="2. El doble factor de autenticación (2FA) mejora la seguridad."
+               Style="{StaticResource QuestionLabelStyle}" />
+                <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <Button Text="Verdadero" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta2_Correcto"/>
+                    <Button Text="Falso" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta2_Falso"/>
+                </HorizontalStackLayout>
+                <BoxView Style="{StaticResource DividerStyle}" />
+
+                <!-- Pregunta 3 -->
+                <Label Text="3. Está bien aceptar invitaciones de desconocidos en redes sociales."
+               Style="{StaticResource QuestionLabelStyle}" />
+                <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <Button Text="Verdadero" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta3_Falso"/>
+                    <Button Text="Falso" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta3_Correcto"/>
+                </HorizontalStackLayout>
+                <BoxView Style="{StaticResource DividerStyle}" />
+
+                <!-- Pregunta 4 -->
+                <Label Text="4. Descargar apps solo de tiendas oficiales es más seguro."
+               Style="{StaticResource QuestionLabelStyle}" />
+                <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <Button Text="Verdadero" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta4_Correcto"/>
+                    <Button Text="Falso" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta4_Falso"/>
+                </HorizontalStackLayout>
+                <BoxView Style="{StaticResource DividerStyle}" />
+
+                <!-- Pregunta 5 -->
+                <Label Text="5. Si algo te incomoda en línea, debes guardarlo como secreto."
+               Style="{StaticResource QuestionLabelStyle}" />
+                <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                    <Button Text="Verdadero" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta5_Falso"/>
+                    <Button Text="Falso" Style="{StaticResource AnswerButtonStyle}"
+                  Clicked="Pregunta5_Correcto"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

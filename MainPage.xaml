@@ -1,16 +1,93 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="AppSeguridad.MainPage">
-    <VerticalStackLayout Padding="20" Spacing="25" VerticalOptions="Center">
-        <Label Text="¿Cuál es tu grupo de edad?"
-               FontSize="24"
-               HorizontalOptions="Center" />
+    x:Class="AppSeguridad.MainPage"
+    Title="Selecciona Tu Grupo">
 
-        <Button Text="Niños (6 a 12 años)" Clicked="OnNinosClicked"/>
-        <Button Text="Adolescentes (12 a 18 años)" Clicked="OnAdolescentesClicked"/>
-        <Button Text="Adultos mayores (65+)" Clicked="OnAdultosClicked"/>
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Gradiente animado de fondo -->
+            <LinearGradientBrush x:Key="PageBackgroundGradient"
+                           StartPoint="0,0"
+                           EndPoint="1,1">
+                <GradientStop Color="#FFFBF5" Offset="0.0" />
+                <GradientStop Color="#E0F7FA" Offset="1.0" />
+            </LinearGradientBrush>
+
+            <!-- Estilo título -->
+            <Style x:Key="MainTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#333333" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0,10" />
+            </Style>
+
+            <!-- Estilo Frame para opción -->
+            <Style x:Key="OptionFrameStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="10,5" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="#B0BEC5" />
+            </Style>
+
+            <!-- Estilo Button para opción -->
+            <Style x:Key="OptionButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="BackgroundColor" Value="#00796B" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="0.97" />
+                                    <Setter Property="BackgroundColor" Value="#004D40" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- Aplicamos el gradiente animado como fondo -->
+    <Grid Background="{StaticResource PageBackgroundGradient}">
+        <VerticalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+
+            <!-- Título principal -->
+            <Label Text="🔎 ¿Cuál es tu grupo de edad?"
+             Style="{StaticResource MainTitleStyle}" />
+
+            <!-- Opción Niños -->
+            <Frame Style="{StaticResource OptionFrameStyle}">
+                <Button Text="👧🏼 Niños (6 a 12 años)"
+                Style="{StaticResource OptionButtonStyle}"
+                Clicked="OnNinosClicked" />
+            </Frame>
+
+            <!-- Opción Adolescentes -->
+            <Frame Style="{StaticResource OptionFrameStyle}">
+                <Button Text="🧑🏽‍💻 Adolescentes (12 a 18 años)"
+                Style="{StaticResource OptionButtonStyle}"
+                Clicked="OnAdolescentesClicked" />
+            </Frame>
+
+            <!-- Opción Adultos Mayores -->
+            <Frame Style="{StaticResource OptionFrameStyle}">
+                <Button Text="👵🏻 Adultos mayores (65+)"
+                Style="{StaticResource OptionButtonStyle}"
+                Clicked="OnAdultosClicked" />
+            </Frame>
+
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
-

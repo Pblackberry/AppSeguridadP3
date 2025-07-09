@@ -1,13 +1,203 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AppSeguridad.NinosPage"
     Title="Seguridad para Niños">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!-- Fondo gradiente suave -->
+            <LinearGradientBrush x:Key="PageBackgroundGradient"
+                           StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFFDE7" Offset="0.0" />
+                <GradientStop Color="#E1F5FE" Offset="1.0" />
+            </LinearGradientBrush>
+
+            <!-- Estilo de título -->
+            <Style x:Key="MainTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#37474F" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0,10" />
+            </Style>
+
+            <!-- Estilo subtítulo en cada consejo -->
+            <Style x:Key="TipHeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#0277BD" />
+            </Style>
+
+            <!-- Estilo de texto explicativo -->
+            <Style x:Key="TipTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#37474F" />
+            </Style>
+
+            <!-- Estilo de Frame para cada consejo -->
+            <Style x:Key="TipFrameStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="5,3" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="#B0BEC5" />
+            </Style>
+
+            <!-- Estilo de botón de juego -->
+            <Style x:Key="PlayButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#00796B" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="0.97" />
+                                    <Setter Property="BackgroundColor" Value="#004D40" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- Fondo gradiente aplicado -->
+    <Grid Background="{StaticResource PageBackgroundGradient}">
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="12">
+
+                <!-- Título -->
+                <Label Text="🛡️ 10 Consejos de Ciberseguridad para Niños"
+               Style="{StaticResource MainTitleStyle}" />
+
+                <!-- Consejo 1 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="1. Usa contraseñas divertidas y seguras 🎮"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Crea contraseñas fáciles de recordar para ti, pero difíciles para otros; usa letras y números." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 2 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="2. No compartas tu información personal 📵"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Nunca digas tu dirección o teléfono a desconocidos en juegos o chats." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 3 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="3. Pregunta siempre a un adulto antes de descargar algo 📥"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Algunos archivos pueden tener virus; espera y avisa a mamá o papá." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 4 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="4. Juega solo en páginas seguras 🔒"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Busca el candado en la dirección web antes de entrar a un juego nuevo." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 5 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="5. No aceptes solicitudes de amistad de extraños 👤"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Acepta solo a quienes conoces en persona o familiares." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 6 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="6. Cierra sesión cuando termines 🎯"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Así nadie más podrá usar tu cuenta en tu dispositivo." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 7 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="7. No hagas clic en anuncios extraños 🚫"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Esos anuncios pueden redirigirte a páginas con virus o engaños." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 8 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="8. Mantén tu software actualizado 🔄"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Las actualizaciones ayudan a proteger tu computadora o tableta." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 9 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="9. Usa el control parental cuando puedas 👨‍👩‍👧"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Pide a tus padres que activen filtros para bloquear contenido inapropiado." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 10 -->
+                <Frame Style="{StaticResource TipFrameStyle}">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="10. Avísale a un adulto si algo te da miedo 😨"
+                   Style="{StaticResource TipHeaderStyle}" />
+                        <Label Text="Si ves algo raro o te sientes incómodo, cuéntaselo a mamá o papá." 
+                   Style="{StaticResource TipTextStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <!-- Video explicativo -->
+                <Frame HasShadow="True" CornerRadius="8" Padding="0" Margin="5,10">
+                                <WebView 
+               HeightRequest="250"
+               Source="https://youtu.be/rHDTJQKW2y8" />
+                            </Frame>
+
+                <!-- Botón para jugar al final -->
+                <Button Text="🎲 Jugar Quiz de Seguridad"
+                Style="{StaticResource PlayButtonStyle}"
+                Clicked="OnPlayQuizClicked"
+                HorizontalOptions="Center"
+                Margin="0,10" />
+                
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

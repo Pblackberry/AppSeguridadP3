@@ -1,12 +1,197 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppSeguridad.AdultosMayoresPage"
-             Title="AdultosMayoresPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI! 2"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSeguridad.AdultosMayoresPage"
+    Title="Ciberseguridad para Adultos Mayores">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Tipografía general -->
+            <Style x:Key="TituloStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#333333" />
+            </Style>
+            <Style x:Key="SubtituloStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#444444" />
+            </Style>
+            <Style x:Key="TextoStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <!-- Frame para cada tip -->
+            <Style x:Key="TipFrameStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="5,2" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- Fondo suave estilo circuito -->
+    <Grid>
+        <Image Source="circuito_fondo.png"
+           Aspect="AspectFill"
+           Opacity="0.1" />
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <!-- Encabezado -->
+                <Frame BackgroundColor="#FFFFFFCC"
+               CornerRadius="12"
+               Padding="15"
+               HasShadow="True">
+                    <Label Text="🔒 10 Consejos de Ciberseguridad"
+                 Style="{StaticResource TituloStyle}"
+                 HorizontalOptions="Center" />
+                </Frame>
+
+                <!-- Consejo 1: Antivirus -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#4CAF50">
+                    <!-- Verde antivirus -->
+                    <VerticalStackLayout>
+                        <Label Text="🛡️ Instala un buen antivirus" 
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Un antivirus actualizado detecta y elimina virus antes de que infecten tu equipo." 
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 2: Virus -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#F44336">
+                    <!-- Rojo virus -->
+                    <VerticalStackLayout>
+                        <Label Text="☣️ Cuidado con archivos y enlaces sospechosos"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Los virus se ocultan en adjuntos o enlaces. No abras nada de desconocidos." 
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 3: Hacking -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#FF9800">
+                    <!-- Naranja hacking -->
+                    <VerticalStackLayout>
+                        <Label Text="💻 Entiende los métodos de hacking"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Los hackers usan engaños para robar tu información. Aprende sus técnicas básicas." 
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 4: Robar datos -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#9C27B0">
+                    <!-- Púrpura para robar datos -->
+                    <VerticalStackLayout>
+                        <Label Text="🔍 Protege tus datos personales"
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="No compartas PIN, contraseñas o documentos sensibles por teléfono o correo." 
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 5: Seguridad general -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+               BorderColor="#2196F3">
+                    <!-- Azul seguridad -->
+                    <VerticalStackLayout>
+                        <Label Text="🔐 Refuerza tu seguridad" 
+                   Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Usa contraseñas únicas y actualiza tus dispositivos para parchar vulnerabilidades." 
+                   Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 6: Phishing -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+       BorderColor="#E91E63">
+                    <!-- Rosado alerta phishing -->
+                    <VerticalStackLayout>
+                        <Label Text="🎣 Cuidado con el phishing"
+           Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Nunca ingreses datos en formularios de correos o webs que te lleguen sin verificar su origen." 
+           Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 7: Wi-Fi públicas -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+       BorderColor="#00BCD4">
+                    <!-- Turquesa redes -->
+                    <VerticalStackLayout>
+                        <Label Text="📶 Evita redes Wi-Fi públicas sin seguridad"
+           Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Si necesitas conectarte fuera de casa, usa tu propio hotspot o una VPN confiable." 
+           Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 8: Autenticación de dos factores -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+       BorderColor="#8BC34A">
+                    <!-- Verde 2FA -->
+                    <VerticalStackLayout>
+                        <Label Text="🔒 Activa la autenticación de dos factores"
+           Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Añade un segundo paso (SMS, App o llave física) para proteger tus cuentas más sensibles." 
+           Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 9: Copias de seguridad -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+       BorderColor="#FFC107">
+                    <!-- Amarillo backup -->
+                    <VerticalStackLayout>
+                        <Label Text="💾 Realiza copias de seguridad periódicas"
+           Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="Guarda tus fotos y documentos importantes en un disco externo o en la nube." 
+           Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Consejo 10: Permisos de aplicaciones -->
+                <Frame Style="{StaticResource TipFrameStyle}"
+       BorderColor="#795548">
+                    <!-- Marrón permisos -->
+                    <VerticalStackLayout>
+                        <Label Text="📱 Revisa los permisos de tus aplicaciones"
+           Style="{StaticResource SubtituloStyle}" />
+                        <Label Text="No les des acceso innecesario a tu cámara, micrófono o contactos." 
+           Style="{StaticResource TextoStyle}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <!-- (… agrega los consejos faltantes siguiendo este patrón) … -->
+
+                <!-- Video explicativo -->
+                <Frame HasShadow="True" CornerRadius="8" Padding="0" Margin="5,10">
+                    <WebView 
+            HeightRequest="250"
+            Source="https://youtu.be/zEbxxcj4LRs" />
+                </Frame>
+
+                <!-- Botón destacado -->
+                <Button
+          Text="🧩 Jugar Crucigrama"
+          FontSize="18"
+          FontAttributes="Bold"
+          BackgroundColor="#333333"
+          TextColor="White"
+          CornerRadius="8"
+          HeightRequest="50"
+          Clicked="IrACrucigrama_Clicked"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

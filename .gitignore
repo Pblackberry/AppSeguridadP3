@@ -1,0 +1,21 @@
+﻿# Archivos y carpetas de compilación
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Configs de IDE
+*.vsidx
+
+# MAUI cache
+AppSeguridad.exe.WebView2/
+
+# Archivos de sistema
+Thumbs.db
+.DS_Store

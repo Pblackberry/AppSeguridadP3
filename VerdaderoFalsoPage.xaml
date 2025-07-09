@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSeguridad.VerdaderoFalsoPage"
+    Title="Verdadero o Falso"
+    BackgroundColor="#F9FAFB">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+            <Label Text="¿Verdadero o Falso?" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <!-- Pregunta 1 -->
+            <Label Text="1. Es seguro usar la misma contraseña en todas tus cuentas." FontSize="18"/>
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Verdadero" Clicked="Pregunta1_Falso"/>
+                <Button Text="Falso" Clicked="Pregunta1_Correcto"/>
+            </HorizontalStackLayout>
+
+            <!-- Pregunta 2 -->
+            <Label Text="2. El doble factor de autenticación (2FA) mejora la seguridad." FontSize="18"/>
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Verdadero" Clicked="Pregunta2_Correcto"/>
+                <Button Text="Falso" Clicked="Pregunta2_Falso"/>
+            </HorizontalStackLayout>
+
+            <!-- Pregunta 3 -->
+            <Label Text="3. Está bien aceptar invitaciones de desconocidos en redes sociales." FontSize="18"/>
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Verdadero" Clicked="Pregunta3_Falso"/>
+                <Button Text="Falso" Clicked="Pregunta3_Correcto"/>
+            </HorizontalStackLayout>
+
+            <!-- Pregunta 4 -->
+            <Label Text="4. Descargar apps solo de tiendas oficiales es más seguro." FontSize="18"/>
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Verdadero" Clicked="Pregunta4_Correcto"/>
+                <Button Text="Falso" Clicked="Pregunta4_Falso"/>
+            </HorizontalStackLayout>
+
+            <!-- Pregunta 5 -->
+            <Label Text="5. Si algo te incomoda en línea, debes guardarlo como secreto." FontSize="18"/>
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Verdadero" Clicked="Pregunta5_Falso"/>
+                <Button Text="Falso" Clicked="Pregunta5_Correcto"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
